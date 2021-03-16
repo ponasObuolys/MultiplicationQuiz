@@ -3,29 +3,33 @@ from colorama import *
 
 bandymai = int(input(Fore.YELLOW +'\nKelis kartus nori spėti?- '))
 print(Style.RESET_ALL)
-maximum = bandymai - 1
+spejimai = 0
+atsakyti = []
 
 while True:
 
     x = random.randint(2, 9)
     y = random.randint(2, 9)
     teisingas = x * y
-    print('|---------------------------------|')
+    print('|------------------------------------------|')
     print('\tKiek bus ' + str(x) + ' padauginus is ' + str(y) + '?')
     atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
-    print('|---------------------------------|')
+    print('|------------------------------------------|')
 
     if atsakimas == teisingas:
         bandymai -= 1
-        print(Fore.GREEN + '\tŠaunuolė! Teisingai!')
-        print('\tLiko {} klausimai(-ų)'.format(bandymai))
+        spejimai += 1
+        atsakyti.append(teisingas)
+        print(Fore.GREEN + '\tŠaunuolė! Atsakei i {} klausymą(-us)'.format(spejimai))
+        print(f'\tLiko {bandymai} klausimas(-ai)')
         print(Style.RESET_ALL)
         if bandymai == 0:
-            print(Fore.GREEN, Back.WHITE + 'Atesakei teisingai {} kartus iš eilės.\nGali pailsėti!'.format(maximum+1))
+            print(Fore.MAGENTA + 'Atsakei teisingai {} kartus(-ų) iš eilės.'.format(spejimai))
+            print('Teisingi atsakymai buvo šie: {}'.format(atsakyti))
             break
         else:
             pass
     else:
         print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-        print(Fore.RED + 'Atsakei teisingai tik {} kartus iš eilės.'.format(maximum+1))
+        print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
         break
