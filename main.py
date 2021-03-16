@@ -2,7 +2,8 @@ import random
 from colorama import *
 
 bandymai = 0
-max = 5
+maximum = 5
+
 while True:
 
     x = random.randint(1, 10)
@@ -14,10 +15,10 @@ while True:
     if atsakimas == teisingas:
         bandymai += 1
         print(Fore.GREEN + 'Šaunuolė! Teisingai!')
-        print('Liko {} klausimai'.format(max-bandymai))
+        print('Liko {} klausimai'.format(maximum-bandymai))
         print(Style.RESET_ALL)
         if bandymai == 5:
-            print(Fore.GREEN, Back.WHITE + 'Atesakei teisingai net {} kartus iš eilės.\nGali pailsėti!'.format(bandymai))
+            print(Fore.GREEN, Back.WHITE + 'Atesakei teisingai {} kartus iš eilės.\nGali pailsėti!'.format(bandymai))
             break
         else:
             pass
