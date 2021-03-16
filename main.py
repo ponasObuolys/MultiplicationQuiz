@@ -25,4 +25,3 @@ while True:
         print(Fore.RED + 'NETEISINGAI!. Teisingas atsakymas: {}'.format(teisingas))
         print(f'Atsakei teisingai tik {bandymai} kartus iš eilės.')
         break
-
