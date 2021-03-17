@@ -44,7 +44,7 @@ def matematika():
                     else:
                         pass
                     kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
-                    if kartojimas in ['t', 'taip']:
+                    if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
                         matematika()
                     else:
                         lentele()
@@ -61,7 +61,7 @@ def matematika():
 def lentele():
     while True:
         skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9]
-        print(Fore.BLUE + 'Pasikartosime daugybos lentelę.')
+        print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
         skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti? - '))
         multiplied_list = [element * skaicius for element in skaiciai]
         print(Style.RESET_ALL)
@@ -77,9 +77,10 @@ def lentele():
         print(f'{skaicius} x {skaiciai[7]} = {multiplied_list[7]}')
         print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
         kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
-        if kartojimas in ['t', 'taip']:
+        if kartojimas in ['t', 'taip', 'y', 'yes']:
             lentele()
         else:
             matematika()
+
 
 matematika()
