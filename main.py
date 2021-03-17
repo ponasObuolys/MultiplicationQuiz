@@ -62,7 +62,7 @@ def lentele():
     while True:
         skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         print(Fore.BLUE + 'Pasikartosime daugybos lentelę.')
-        skaicius = int(input('Kokio skaičiaus daugybos lentelę norėtum pasikartoti?- '))
+        skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti? - '))
         multiplied_list = [element * skaicius for element in skaiciai]
         print(Style.RESET_ALL)
 
