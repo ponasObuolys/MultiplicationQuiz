@@ -15,11 +15,11 @@ def matematika():
                 x = random.randint(2, 9)
                 y = random.randint(2, 9)
                 teisingas = x * y
+
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' padauginus is ' + str(y) + '?')
                 atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
                 print('|------------------------------------------|')
-
                 if atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
@@ -47,7 +47,7 @@ def matematika():
                     if kartojimas in ['t', 'taip']:
                         matematika()
                     else:
-                        break
+                        lentele()
         else:
             print(
                 'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
@@ -57,5 +57,29 @@ def matematika():
         print('Atsakymas negali būti raidė!')
         matematika()
 
+
+def lentele():
+    while True:
+        skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        print(Fore.BLUE + 'Pasikartosime daugybos lentelę.')
+        skaicius = int(input('Kokio skaičiaus daugybos lentelę norėtum pasikartoti?- '))
+        multiplied_list = [element * skaicius for element in skaiciai]
+        print(Style.RESET_ALL)
+
+        print(f'Daugybos lentelė iš {skaicius}')
+        print(f'{skaicius} x {skaiciai[0]} = {multiplied_list[0]}')
+        print(f'{skaicius} x {skaiciai[1]} = {multiplied_list[1]}')
+        print(f'{skaicius} x {skaiciai[2]} = {multiplied_list[2]}')
+        print(f'{skaicius} x {skaiciai[3]} = {multiplied_list[3]}')
+        print(f'{skaicius} x {skaiciai[4]} = {multiplied_list[4]}')
+        print(f'{skaicius} x {skaiciai[5]} = {multiplied_list[5]}')
+        print(f'{skaicius} x {skaiciai[6]} = {multiplied_list[6]}')
+        print(f'{skaicius} x {skaiciai[7]} = {multiplied_list[7]}')
+        print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
+        kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
+        if kartojimas in ['t', 'taip']:
+            lentele()
+        else:
+            matematika()
 
 matematika()
