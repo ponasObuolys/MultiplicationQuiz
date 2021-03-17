@@ -1,6 +1,6 @@
 import random
 from colorama import *
-
+from PIL import Image
 
 def matematika():
     try:
@@ -9,6 +9,8 @@ def matematika():
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
+            happy = Image.open("happy.jpg")
+            sad = Image.open("sad.png")
 
             while True:
 
@@ -28,6 +30,7 @@ def matematika():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
+                        happy.show()
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -35,6 +38,7 @@ def matematika():
                     else:
                         pass
                 else:
+                    sad.show()
                     print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
