@@ -2,7 +2,6 @@ import random
 from colorama import *
 
 
-
 def matematika():
     try:
         bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
@@ -25,8 +24,8 @@ def matematika():
                     bandymai -= 1
                     spejimai += 1
                     atsakyti.append([f'{x} x {y} = {teisingas}'])
-                    print(Fore.GREEN + '\tŠaunuolė! Atsakei i {} klausymus(-ą)'.format(spejimai))
-                    print(f'\tLiko {bandymai} klausimas(-ai)')
+                    print(Fore.GREEN + f'\tŠaunuolė! Atsakei i {spejimai} klausymų(-us)')
+                    print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
@@ -38,19 +37,25 @@ def matematika():
                 else:
                     print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
-                    print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
-                    print(*atsakyti, sep="\n")
-                    print(Style.RESET_ALL)
+                    if spejimai > 0:
+                        print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
+                        print(*atsakyti, sep="\n")
+                        print(Style.RESET_ALL)
+                    else:
+                        pass
                     kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
                     if kartojimas in ['t', 'taip']:
                         matematika()
                     else:
                         break
         else:
-            print('Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED + ' 30' + Fore.YELLOW + ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
+            print(
+                'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
+                ' 30' + Fore.YELLOW + ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
             matematika()
-    except:
+    except ValueError:
         print('Atsakymas negali būti raidė!')
         matematika()
+
 
 matematika()
