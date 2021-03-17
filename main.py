@@ -19,13 +19,14 @@ while True:
     if atsakimas == teisingas:
         bandymai -= 1
         spejimai += 1
-        atsakyti.append(teisingas)
+        atsakyti.append([f'{x} x {y} = {teisingas}'])
         print(Fore.GREEN + '\tŠaunuolė! Atsakei i {} klausymą(-us)'.format(spejimai))
         print(f'\tLiko {bandymai} klausimas(-ai)')
         print(Style.RESET_ALL)
         if bandymai == 0:
+            stringas = ' '.join([str(elem) for elem in atsakyti])
             print(Fore.MAGENTA + 'Atsakei teisingai {} kartus(-ų) iš eilės.'.format(spejimai))
-            print('Teisingi atsakymai buvo šie: {}'.format(atsakyti))
+            print(Fore.YELLOW + 'Teisingi atsakymai buvo šie: {}'.format(stringas))
             break
         else:
             pass
