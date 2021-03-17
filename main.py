@@ -9,12 +9,12 @@ def matematika():
         bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
         if bandymai in [15, 30, 50]:
             print(Style.RESET_ALL)
-            fail = "fail.mp3"
-            happykids = "happykids.mp3"
+            fail = "sound/fail.mp3"
+            happykids = "sound/happykids.mp3"
             spejimai = 0
             atsakyti = []
-            happy = Image.open("happy.jpg")
-            sad = Image.open("sad.png")
+            happy = Image.open("img/happy.jpg")
+            sad = Image.open("img/sad.png")
 
             while True:
 
