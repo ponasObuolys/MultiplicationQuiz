@@ -30,7 +30,7 @@ def matematika():
                     bandymai -= 1
                     spejimai += 1
                     atsakyti.append([f'{x} x {y} = {teisingas}'])
-                    print(Fore.GREEN + f'\tŠaunuolė! Atsakei i {spejimai} klausymų(-us)')
+                    print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
@@ -39,7 +39,7 @@ def matematika():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         subprocess.call(["afplay", happykids])
-                        kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
+                        kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
                             matematika()
                         else:
