@@ -1,12 +1,16 @@
 import random
 from colorama import *
 from PIL import Image
+import subprocess
+
 
 def matematika():
     try:
         bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
         if bandymai in [15, 30, 50]:
             print(Style.RESET_ALL)
+            fail = "fail.mp3"
+            happykids = "happykids.mp3"
             spejimai = 0
             atsakyti = []
             happy = Image.open("happy.jpg")
@@ -34,13 +38,19 @@ def matematika():
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        break
+                        subprocess.call(["afplay", happykids])
+                        kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
+                        if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
+                            matematika()
+                        else:
+                            break
                     else:
                         pass
                 else:
                     sad.show()
                     print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
+                    subprocess.call(["afplay", fail])
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
