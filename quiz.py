@@ -4,8 +4,9 @@ from colorama import *
 
 def matematika():
     try:
-        bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
-        if bandymai in [1, 15, 30, 50]:
+        print(Fore.RED + '\t|- Daugybos lentelės testas -|')
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spėti? (15/30/50)- '))
+        if bandymai in [15, 30, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
