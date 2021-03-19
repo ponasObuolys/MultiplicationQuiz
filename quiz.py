@@ -9,8 +9,8 @@ def matematika():
         bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
         if bandymai in [15, 30, 50]:
             print(Style.RESET_ALL)
-            fail = "sound/fail.mp3"
-            happykids = "sound/happykids.mp3"
+            # fail = "sound/fail.mp3"
+            # happykids = "sound/happykids.mp3"
             spejimai = 0
             atsakyti = []
             happy = Image.open("img/happy.jpg")
@@ -38,7 +38,7 @@ def matematika():
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        subprocess.call(["afplay", happykids])
+                        # subprocess.call(["afplay", happykids])
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
                             matematika()
@@ -50,7 +50,7 @@ def matematika():
                     sad.show()
                     print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
-                    subprocess.call(["afplay", fail])
+                    # subprocess.call(["afplay", fail])
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
