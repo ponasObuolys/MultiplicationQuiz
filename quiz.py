@@ -5,7 +5,7 @@ from colorama import *
 def matematika():
     try:
         bandymai = int(input(Fore.YELLOW + '\nKelis kartus nori spėti? (15/30/50)- '))
-        if bandymai in [15, 30, 50]:
+        if bandymai in [1, 15, 30, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
@@ -35,11 +35,10 @@ def matematika():
                         if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
                             matematika()
                         else:
-                            break
+                            lentele()
                     else:
                         pass
                 else:
-                    # sad.show()
                     print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
@@ -67,7 +66,7 @@ def lentele():
     while True:
         skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9]
         print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
-        skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti? - '))
+        skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti?- '))
         multiplied_list = [element * skaicius for element in skaiciai]
         print(Style.RESET_ALL)
 
