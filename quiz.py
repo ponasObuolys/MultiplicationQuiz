@@ -1,4 +1,5 @@
 import random
+import time
 from colorama import *
 
 
@@ -6,16 +7,17 @@ def matematika():
     try:
         print(Fore.RED + '\t|- Daugybos lentelės testas -|')
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spėti? (15/30/50)- '))
-        if bandymai in [15, 30, 50]:
+        if bandymai in [2, 15, 30, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
+            testo_pradzia = time.time()
 
             while True:
-
                 x = random.randint(2, 9)
                 y = random.randint(2, 9)
                 teisingas = x * y
+                dabar = time.time()
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' padauginus is ' + str(y) + '?')
@@ -29,6 +31,7 @@ def matematika():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
+                        print('Testas išspręstas per: {} sek.'.format(dabar - testo_pradzia))
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
