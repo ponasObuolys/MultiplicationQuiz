@@ -1,6 +1,7 @@
 import random
 import time
 from colorama import *
+import math
 
 
 def matematika():
@@ -18,6 +19,7 @@ def matematika():
                 y = random.randint(2, 9)
                 teisingas = x * y
                 dabar = time.time()
+                uzgaista = math.ceil(dabar - testo_pradzia)
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' padauginus is ' + str(y) + '?')
@@ -31,7 +33,7 @@ def matematika():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas per: {} sek.'.format(dabar - testo_pradzia))
+                        print('Testas išspręstas ' + Fore.RED + f'per: {uzgaista} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -68,7 +70,7 @@ def matematika():
 
 def lentele():
     while True:
-        skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
         skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti?- '))
         multiplied_list = [element * skaicius for element in skaiciai]
@@ -84,6 +86,7 @@ def lentele():
         print(f'{skaicius} x {skaiciai[6]} = {multiplied_list[6]}')
         print(f'{skaicius} x {skaiciai[7]} = {multiplied_list[7]}')
         print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
+        print(f'{skaicius} x {skaiciai[9]} = {multiplied_list[9]}')
         kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
         if kartojimas in ['t', 'taip', 'y', 'yes']:
             lentele()
