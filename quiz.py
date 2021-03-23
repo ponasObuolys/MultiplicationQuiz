@@ -13,6 +13,7 @@ def matematika():
             spejimai = 0
             atsakyti = []
             testo_pradzia = time.time()
+            kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
 
             while True:
                 x = random.randint(2, 9)
@@ -38,23 +39,24 @@ def matematika():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
-                        if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
+                        if kartojimas in kartojimas_teigiami:
                             matematika()
                         else:
                             lentele()
                     else:
                         pass
                 else:
-                    print(Fore.RED + '\nNETEISINGAI!. Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
+                    print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
                     print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
+                        print('\nTestas neišspręstas. ' + Fore.RED + f'Užtrukai: {uzgaista} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
                     kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
-                    if kartojimas in ['t', 'taip', 'teip', 'y', 'yes']:
+                    if kartojimas in kartojimas_teigiami:
                         matematika()
                     else:
                         lentele()
@@ -70,6 +72,7 @@ def matematika():
 
 def lentele():
     while True:
+        kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
         skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
         print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
         skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti?- '))
@@ -88,7 +91,7 @@ def lentele():
         print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
         print(f'{skaicius} x {skaiciai[9]} = {multiplied_list[9]}')
         kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
-        if kartojimas in ['t', 'taip', 'y', 'yes']:
+        if kartojimas in kartojimas_teigiami:
             lentele()
         else:
             matematika()
