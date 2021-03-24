@@ -73,7 +73,7 @@ def matematika():
 def lentele():
     while True:
         kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
-        skaiciai = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        skaiciai = list(range(1, 10))
         print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
         skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti?- '))
         multiplied_list = [element * skaicius for element in skaiciai]
