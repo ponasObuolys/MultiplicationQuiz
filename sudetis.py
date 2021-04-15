@@ -6,7 +6,7 @@ import math
 
 def matematika():
     try:
-        print(Fore.RED + '\t|- Daugybos lentelės testas -|')
+        print(Fore.RED + '\t|- Sudėties testas -|')
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (15/30/50)- '))
         if bandymai in [2, 15, 30, 50]:
             print(Style.RESET_ALL)
