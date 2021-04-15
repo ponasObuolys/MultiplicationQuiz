@@ -21,8 +21,8 @@ def pasirinktimas():
 def daugyba():
     try:
         print(Fore.RED + '\t|- Daugybos lentelės testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (15/30/50)- '))
-        if bandymai in [2, 15, 30, 50]:
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
@@ -76,8 +76,8 @@ def daugyba():
                         pasirinktimas()
         else:
             print(
-                'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
-                ' 30' + Fore.YELLOW + ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
+                '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
+                ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
             daugyba()
     except ValueError:
         print('Atsakymas negali būti raidė!')
@@ -86,8 +86,8 @@ def daugyba():
 def sudetis():
     try:
         print(Fore.RED + '\t|- Sudėties testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (15/30/50)- '))
-        if bandymai in [2, 15, 30, 50]:
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
@@ -141,8 +141,8 @@ def sudetis():
                         pasirinktimas()
         else:
             print(
-                'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
-                ' 30' + Fore.YELLOW + ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
+                '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
+                ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
             sudetis()
     except ValueError:
         print('Atsakymas negali būti raidė!')
@@ -151,8 +151,8 @@ def sudetis():
 def atimtis():
     try:
         print(Fore.RED + '\t|- Atimties testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (15/30/50)- '))
-        if bandymai in [2, 15, 30, 50]:
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
             spejimai = 0
             atsakyti = []
@@ -206,8 +206,8 @@ def atimtis():
                         pasirinktimas()
         else:
             print(
-                'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
-                ' 30' + Fore.YELLOW + ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
+                '\tGalima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW +
+                ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
             atimtis()
     except ValueError:
         print('Atsakymas negali būti raidė!')
