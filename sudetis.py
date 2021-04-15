@@ -16,20 +16,20 @@ def matematika():
             kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
 
             while True:
-                x = random.randint(2, 9)
-                y = random.randint(2, 9)
-                teisingas = x * y
+                x = random.randint(11, 99)
+                y = random.randint(11, 99)
+                teisingas = x + y
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
 
                 print('|------------------------------------------|')
-                print('\tKiek bus ' + str(x) + ' padauginus is ' + str(y) + '?')
+                print('\tKiek bus ' + str(x) + ' + ' + str(y) + '?')
                 atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
                 print('|------------------------------------------|')
                 if atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
-                    atsakyti.append([f'{x} x {y} = {teisingas}'])
+                    atsakyti.append([f'{x} + {y} = {teisingas}'])
                     print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
@@ -42,7 +42,7 @@ def matematika():
                         if kartojimas in kartojimas_teigiami:
                             matematika()
                         else:
-                            lentele()
+                            break
                     else:
                         pass
                 else:
@@ -59,7 +59,7 @@ def matematika():
                     if kartojimas in kartojimas_teigiami:
                         matematika()
                     else:
-                        lentele()
+                        break
         else:
             print(
                 'Galima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW + ',' + Fore.RED +
@@ -68,33 +68,5 @@ def matematika():
     except ValueError:
         print('Atsakymas negali būti raidė!')
         matematika()
-
-
-def lentele():
-    while True:
-        kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
-        skaiciai = list(range(1, 10))
-        print(Fore.BLUE + '\nPasikartosime daugybos lentelę.')
-        skaicius = int(input(Fore.RED + 'Kokio skaičiaus ' + Fore.BLUE + 'daugybos lentelę norėtum pasikartoti?- '))
-        multiplied_list = [element * skaicius for element in skaiciai]
-        print(Style.RESET_ALL)
-
-        print(f'Daugybos lentelė iš {skaicius}')
-        print(f'{skaicius} x {skaiciai[0]} = {multiplied_list[0]}')
-        print(f'{skaicius} x {skaiciai[1]} = {multiplied_list[1]}')
-        print(f'{skaicius} x {skaiciai[2]} = {multiplied_list[2]}')
-        print(f'{skaicius} x {skaiciai[3]} = {multiplied_list[3]}')
-        print(f'{skaicius} x {skaiciai[4]} = {multiplied_list[4]}')
-        print(f'{skaicius} x {skaiciai[5]} = {multiplied_list[5]}')
-        print(f'{skaicius} x {skaiciai[6]} = {multiplied_list[6]}')
-        print(f'{skaicius} x {skaiciai[7]} = {multiplied_list[7]}')
-        print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
-        print(f'{skaicius} x {skaiciai[9]} = {multiplied_list[9]}')
-        kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
-        if kartojimas in kartojimas_teigiami:
-            lentele()
-        else:
-            matematika()
-
 
 matematika()
