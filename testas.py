@@ -3,7 +3,6 @@ import time
 from colorama import *
 import math
 
-
 def pasirinktimas():
     print('|------------------------------------------|')
     print(Fore.RED + '\t|- Ką šiandien nori mokytis? -|')
@@ -17,6 +16,7 @@ def pasirinktimas():
     else:
         print('\tAtsakymas turi būti: "D", "S" ar "A" raidės')
         pasirinktimas()
+
 
 def daugyba():
     try:
@@ -35,6 +35,9 @@ def daugyba():
                 teisingas = x * y
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
+                laiko_vertimas = int(uzgaista)
+                min = laiko_vertimas // 60
+                sec = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' padauginus iš ' + str(y) + '?')
@@ -48,7 +51,7 @@ def daugyba():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas ' + Fore.RED + f'per: {uzgaista} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -65,7 +68,7 @@ def daugyba():
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. ' + Fore.RED + f'Užtrukai: {uzgaista} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -82,6 +85,7 @@ def daugyba():
     except ValueError:
         print('Atsakymas negali būti raidė!')
         daugyba()
+
 
 def sudetis():
     try:
@@ -100,6 +104,9 @@ def sudetis():
                 teisingas = x + y
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
+                laiko_vertimas = int(uzgaista)
+                min = laiko_vertimas // 60
+                sec = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' + ' + str(y) + '?')
@@ -113,7 +120,7 @@ def sudetis():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas ' + Fore.RED + f'per: {uzgaista} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -130,7 +137,7 @@ def sudetis():
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. ' + Fore.RED + f'Užtrukai: {uzgaista} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -147,6 +154,7 @@ def sudetis():
     except ValueError:
         print('Atsakymas negali būti raidė!')
         sudetis()
+
 
 def atimtis():
     try:
@@ -165,6 +173,9 @@ def atimtis():
                 teisingas = x - y
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
+                laiko_vertimas = int(uzgaista)
+                min = laiko_vertimas // 60
+                sec = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' - ' + str(y) + '?')
@@ -178,7 +189,7 @@ def atimtis():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas ' + Fore.RED + f'per: {uzgaista} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -195,7 +206,7 @@ def atimtis():
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. ' + Fore.RED + f'Užtrukai: {uzgaista} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -212,6 +223,7 @@ def atimtis():
     except ValueError:
         print('Atsakymas negali būti raidė!')
         atimtis()
+
 
 def lentele():
     while True:
