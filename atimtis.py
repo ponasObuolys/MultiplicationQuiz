@@ -29,7 +29,7 @@ def matematika():
                 if atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
-                    atsakyti.append([f'{x} + {y} = {teisingas}'])
+                    atsakyti.append([f'{x} - {y} = {teisingas}'])
                     print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
