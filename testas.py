@@ -4,25 +4,32 @@ from colorama import *
 import math
 
 
-def pasirinktimas():
+def pasirinkimas():
     print('|------------------------------------------|')
     print(Fore.RED + '\t|- Ką šiandien nori mokytis? -|')
-    koks_veiksmas = input(Fore.GREEN + '\tDaugybą (D), Sudėtį (S) ar Atimtį (A)?- ').lower()
+    koks_veiksmas = input(Fore.GREEN + '\tDaugybą (' + Fore.RED + 'D' + Fore.GREEN +
+                          '), Sudėtį (' + Fore.RED + 'S' + Fore.GREEN + '), Atimtį (' + Fore.RED +
+                          'A' + Fore.GREEN + ') ar kartotis daugybos lentelę (' + Fore.RED +
+                          'L' + Fore.GREEN + ')?- ').lower()
     if koks_veiksmas == 'd':
         return daugyba()
     elif koks_veiksmas == 's':
         return sudetis()
     elif koks_veiksmas == 'a':
         return atimtis()
+    elif koks_veiksmas == 'l':
+        return lentele()
     else:
-        print('\tAtsakymas turi būti: "D", "S" ar "A" raidės')
-        pasirinktimas()
+        print('\tAtsakymas turi būti :' + Fore.RED + '"D", "S"' + Fore.GREEN +
+              ' arba ' + Fore.RED + '"A"' + Fore.GREEN + ' raidės')
+        pasirinkimas()
 
 
 def daugyba():
     try:
-        print(Fore.RED + '\t|- Daugybos lentelės testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        print(Fore.RED + '\t|- Daugybos testas -|')
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED +
+                             ' (25/50)' + Fore.YELLOW + '- '))
         if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
             pagalba = 1
@@ -41,36 +48,52 @@ def daugyba():
                 minutes = laiko_vertimas // 60
                 sekundes = laiko_vertimas % 60
 
+                print(Style.RESET_ALL)
                 print('|------------------------------------------|')
-                print('\tKiek bus ' + str(x) + ' padauginus iš ' + str(y) + '?')
+                print('\tKiek bus ' + str(x) + ' x ' + str(y) + '?')
+                if pagalba == 1:
+                    print(Fore.BLUE + '\tPaspaudus NULĮ (0) galėsi vieną karta pasinaudoti pagalba')
+                else:
+                    pass
                 atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
                 print('|------------------------------------------|')
-                if atsakimas == teisingas:
+                if atsakimas == 0 and pagalba == 1:
+                    ar_pagalba = input(Fore.GREEN + '\tAr tikrai nori pasinaudoti pagalba? (T/N)- ')
+                    if ar_pagalba in kartojimas_teigiami:
+                        pagalba -= 1
+                        print(f'\tTeisingas atsakymas yra: ' + Fore.RED + f'{teisingas}')
+                    else:
+                        continue
+                elif atsakimas == 0 and pagalba == 0:
+                    print('\tPagalba išnaudota')
+                elif atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
                     atsakyti.append([f'{x} x {y} = {teisingas}'])
-                    print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
-                    print(f'\tLiko {bandymai} klausimų(-ai)')
+                    print(Fore.GREEN + '\tPuiku! Atsakei i ' + Fore.RED + f'{spejimai}' + Fore.GREEN + ' klausymų(-us)')
+                    print('\tLiko ' + Fore.RED + f'{bandymai}' + Fore.GREEN + ' klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
-                        print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
+                        print(Fore.MAGENTA + 'Atsakei teisingai ' + Fore.GREEN +
+                              f'{spejimai}' + Fore.MAGENTA + 'kartų(-us) iš eilės.')
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             daugyba()
                         else:
-                            pasirinktimas()
+                            pasirinkimas()
                     else:
                         pass
                 else:
-                    print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
+                    print('\nNETEISINGAI! ' + Fore.RED + 'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
+                    print(Fore.RED + 'Atsakei teisingai ' + Fore.GREEN +
+                          f'{spejimai}' + Fore.RED + ' kartą(-us) iš eilės.')
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} minutes. {sekundes} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -78,7 +101,7 @@ def daugyba():
                     if kartojimas in kartojimas_teigiami:
                         daugyba()
                     else:
-                        pasirinktimas()
+                        pasirinkimas()
         else:
             print(
                 '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
@@ -92,9 +115,10 @@ def daugyba():
 def sudetis():
     try:
         print(Fore.RED + '\t|- Sudėties testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED + ' (25/50)' + Fore.YELLOW + '- '))
         if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
+            pagalba = 1
             spejimai = 0
             atsakyti = []
             testo_pradzia = time.time()
@@ -110,32 +134,48 @@ def sudetis():
                 minutes = laiko_vertimas // 60
                 sekundes = laiko_vertimas % 60
 
+                print(Style.RESET_ALL)
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' + ' + str(y) + '?')
+                if pagalba == 1:
+                    print(Fore.BLUE + '\tPaspaudus NULĮ (0) galėsi vieną karta pasinaudoti pagalba')
+                else:
+                    pass
                 atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
                 print('|------------------------------------------|')
-                if atsakimas == teisingas:
+                if atsakimas == 0 and pagalba == 1:
+                    ar_pagalba = input(Fore.GREEN + '\tAr tikrai nori pasinaudoti pagalba? (T/N)- ')
+                    if ar_pagalba in kartojimas_teigiami:
+                        pagalba -= 1
+                        print(f'\tTeisingas atsakymas yra: ' + Fore.RED + f'{teisingas}')
+                    else:
+                        continue
+                elif atsakimas == 0 and pagalba == 0:
+                    print('\tPagalba išnaudota')
+                elif atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
                     atsakyti.append([f'{x} + {y} = {teisingas}'])
-                    print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
-                    print(f'\tLiko {bandymai} klausimų(-ai)')
+                    print(Fore.GREEN + '\tPuiku! Atsakei i ' + Fore.RED + f'{spejimai}' + Fore.GREEN + ' klausymų(-us)')
+                    print('\tLiko ' + Fore.RED + f'{bandymai}' + Fore.GREEN + ' klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
-                        print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
+                        print(Fore.MAGENTA + 'Atsakei teisingai ' + Fore.GREEN +
+                              f'{spejimai}' + Fore.MAGENTA + 'kartų(-us) iš eilės.')
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             sudetis()
                         else:
-                            pasirinktimas()
+                            pasirinkimas()
                     else:
                         pass
                 else:
-                    print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
+                    print('\nNETEISINGAI! ' + Fore.RED + 'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
+                    print(Fore.RED + 'Atsakei teisingai ' + Fore.GREEN +
+                          f'{spejimai}' + Fore.RED + ' kartą(-us) iš eilės.')
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -147,7 +187,7 @@ def sudetis():
                     if kartojimas in kartojimas_teigiami:
                         sudetis()
                     else:
-                        pasirinktimas()
+                        pasirinkimas()
         else:
             print(
                 '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
@@ -161,17 +201,18 @@ def sudetis():
 def atimtis():
     try:
         print(Fore.RED + '\t|- Atimties testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED + ' (25/50)' + Fore.YELLOW + '- '))
         if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
+            pagalba = 1
             spejimai = 0
             atsakyti = []
             testo_pradzia = time.time()
             kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
 
             while True:
-                x = random.randint(99, 199)
-                y = random.randint(11, 99)
+                x = random.randint(89, 199)
+                y = random.randint(11, 88)
                 teisingas = x - y
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
@@ -179,36 +220,52 @@ def atimtis():
                 minutes = laiko_vertimas // 60
                 sekundes = laiko_vertimas % 60
 
+                print(Style.RESET_ALL)
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' - ' + str(y) + '?')
+                if pagalba == 1:
+                    print(Fore.BLUE + '\tPaspaudus NULĮ (0) galėsi vieną karta pasinaudoti pagalba')
+                else:
+                    pass
                 atsakimas = int(input(Fore.BLUE + '\tĮrašyk atsakymą ir paspausk ENTER:- '))
                 print('|------------------------------------------|')
-                if atsakimas == teisingas:
+                if atsakimas == 0 and pagalba == 1:
+                    ar_pagalba = input(Fore.GREEN + '\tAr tikrai nori pasinaudoti pagalba? (T/N)- ')
+                    if ar_pagalba in kartojimas_teigiami:
+                        pagalba -= 1
+                        print(f'\tTeisingas atsakymas yra: ' + Fore.RED + f'{teisingas}')
+                    else:
+                        continue
+                elif atsakimas == 0 and pagalba == 0:
+                    print('\tPagalba išnaudota')
+                elif atsakimas == teisingas:
                     bandymai -= 1
                     spejimai += 1
                     atsakyti.append([f'{x} - {y} = {teisingas}'])
-                    print(Fore.GREEN + f'\tPuiku! Atsakei i {spejimai} klausymų(-us)')
-                    print(f'\tLiko {bandymai} klausimų(-ai)')
+                    print(Fore.GREEN + '\tPuiku! Atsakei i ' + Fore.RED + f'{spejimai}' + Fore.GREEN + ' klausymų(-us)')
+                    print('\tLiko ' + Fore.RED + f'{bandymai}' + Fore.GREEN + ' klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
-                        print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
+                        print(Fore.MAGENTA + 'Atsakei teisingai ' + Fore.GREEN +
+                              f'{spejimai}' + Fore.MAGENTA + 'kartų(-us) iš eilės.')
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             atimtis()
                         else:
-                            pasirinktimas()
+                            pasirinkimas()
                     else:
                         pass
                 else:
-                    print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
+                    print('\nNETEISINGAI! ' + Fore.RED + 'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
+                    print(Fore.RED + 'Atsakei teisingai ' + Fore.GREEN +
+                          f'{spejimai}' + Fore.RED + ' kartą(-us) iš eilės.')
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} minutes. {sekundes} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -216,10 +273,10 @@ def atimtis():
                     if kartojimas in kartojimas_teigiami:
                         atimtis()
                     else:
-                        pasirinktimas()
+                        pasirinkimas()
         else:
             print(
-                '\tGalima rinktis iš' + Fore.RED + ' 15' + Fore.YELLOW +
+                '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
                 ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
             atimtis()
     except ValueError:
@@ -246,12 +303,11 @@ def lentele():
         print(f'{skaicius} x {skaiciai[6]} = {multiplied_list[6]}')
         print(f'{skaicius} x {skaiciai[7]} = {multiplied_list[7]}')
         print(f'{skaicius} x {skaiciai[8]} = {multiplied_list[8]}')
-        print(f'{skaicius} x {skaiciai[9]} = {multiplied_list[9]}')
         kartojimas = input(Fore.GREEN + 'Nori kartotis kitą skaičių? (T/N)- ').lower()
         if kartojimas in kartojimas_teigiami:
             lentele()
         else:
-            pasirinktimas()
+            pasirinkimas()
 
 
-pasirinktimas()
+pasirinkimas()
