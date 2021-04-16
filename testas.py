@@ -310,4 +310,6 @@ def lentele():
             pasirinkimas()
 
 
+#if __name__ = "__main__":
+     #pasirinkimas()
 pasirinkimas()
