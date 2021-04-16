@@ -3,6 +3,7 @@ import time
 from colorama import *
 import math
 
+
 def pasirinktimas():
     print('|------------------------------------------|')
     print(Fore.RED + '\t|- Ką šiandien nori mokytis? -|')
@@ -24,6 +25,7 @@ def daugyba():
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti? (25/50)- '))
         if bandymai in [2, 25, 50]:
             print(Style.RESET_ALL)
+            pagalba = 1
             spejimai = 0
             atsakyti = []
             testo_pradzia = time.time()
@@ -36,8 +38,8 @@ def daugyba():
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
                 laiko_vertimas = int(uzgaista)
-                min = laiko_vertimas // 60
-                sec = laiko_vertimas % 60
+                minutes = laiko_vertimas // 60
+                sekundes = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' padauginus iš ' + str(y) + '?')
@@ -51,7 +53,7 @@ def daugyba():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -64,11 +66,11 @@ def daugyba():
                         pass
                 else:
                     print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
+                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -105,8 +107,8 @@ def sudetis():
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
                 laiko_vertimas = int(uzgaista)
-                min = laiko_vertimas // 60
-                sec = laiko_vertimas % 60
+                minutes = laiko_vertimas // 60
+                sekundes = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' + ' + str(y) + '?')
@@ -120,7 +122,7 @@ def sudetis():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -133,11 +135,11 @@ def sudetis():
                         pass
                 else:
                     print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
+                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} minutes. {sekundes} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
@@ -174,8 +176,8 @@ def atimtis():
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
                 laiko_vertimas = int(uzgaista)
-                min = laiko_vertimas // 60
-                sec = laiko_vertimas % 60
+                minutes = laiko_vertimas // 60
+                sekundes = laiko_vertimas % 60
 
                 print('|------------------------------------------|')
                 print('\tKiek bus ' + str(x) + ' - ' + str(y) + '?')
@@ -189,7 +191,7 @@ def atimtis():
                     print(f'\tLiko {bandymai} klausimų(-ai)')
                     print(Style.RESET_ALL)
                     if bandymai == 0:
-                        print('Testas išspręstas per:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         print(Fore.MAGENTA + 'Atsakei teisingai {} kartų(-us) iš eilės.'.format(spejimai))
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
@@ -202,11 +204,11 @@ def atimtis():
                         pass
                 else:
                     print('\nNETEISINGAI! ' + Fore.RED +  'Teisingas atsakymas: ' + Fore.GREEN + '{}'.format(teisingas))
-                    print(Fore.RED + 'Atsakei teisingai tik {} kartą(-us) iš eilės.'.format(spejimai))
+                    print(Fore.RED + 'Atsakei teisingai {} kartą(-us) iš eilės.'.format(spejimai))
                     if spejimai > 0:
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
-                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {min} min. {sec} sek.')
+                        print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         print(Style.RESET_ALL)
                     else:
                         pass
