@@ -302,7 +302,8 @@ def dalyba():
                 x = random.randint(2, 9)
                 y = random.randint(2, 9)
                 z = x * y
-                teisingas = z / y
+                teisinga = z / y
+                teisingas = int(teisinga)
                 dabar = time.time()
                 uzgaista = math.ceil(dabar - testo_pradzia)
                 laiko_vertimas = int(uzgaista)
@@ -342,7 +343,7 @@ def dalyba():
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
-                            daugyba()
+                            dalyba()
                         else:
                             pasirinkimas()
                     else:
@@ -360,17 +361,17 @@ def dalyba():
                         pass
                     kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
                     if kartojimas in kartojimas_teigiami:
-                        daugyba()
+                        dalyba()
                     else:
                         pasirinkimas()
         else:
             print(
                 '\tGalima rinktis iš' + Fore.RED + ' 25' + Fore.YELLOW +
                 ' arba' + Fore.RED + ' 50' + Fore.YELLOW + ' spėjimų')
-            daugyba()
+            dalyba()
     except ValueError:
         print('Atsakymas negali būti raidė!')
-        daugyba()
+        dalyba()
 
 
 def lentele():
