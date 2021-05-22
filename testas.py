@@ -88,7 +88,7 @@ def daugyba():
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         vardas = input('Koks tavo vardas?- ')
                         f = open('statistika.txt', 'a+')
-                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Daugyba. Atsakymai: {spejimai}. Laikas: {minutes} minutes. {sekundes} sek.')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Daugyba. Atsakymai: {spejimai}. Laikas: {minutes} min. {sekundes} sek.')
                         f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
@@ -178,7 +178,7 @@ def sudetis():
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         vardas = input('Koks tavo vardas?- ')
                         f = open('statistika.txt', 'a+')
-                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Sudėtis. Atsakymai: {spejimai}. Laikas: {minutes} minutes. {sekundes} sek.')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Sudėtis. Atsakymai: {spejimai}. Laikas: {minutes} min. {sekundes} sek.')
                         f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
@@ -268,7 +268,7 @@ def atimtis():
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         vardas = input('Koks tavo vardas?- ')
                         f = open('statistika.txt', 'a+')
-                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Atimtis. Atsakymai: {spejimai}. Laikas: {minutes} minutes. {sekundes} sek.')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Atimtis. Atsakymai: {spejimai}. Laikas: {minutes} min. {sekundes} sek.')
                         f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
@@ -360,7 +360,7 @@ def dalyba():
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
                         vardas = input('Koks tavo vardas?- ')
                         f = open('statistika.txt', 'a+')
-                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Dalyba. Atsakymai: {spejimai}. Laikas: {minutes} minutes. {sekundes} sek.')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Dalyba. Atsakymai: {spejimai}. Laikas: {minutes} min. {sekundes} sek.')
                         f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
