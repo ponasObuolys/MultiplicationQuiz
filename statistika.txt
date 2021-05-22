@@ -1,0 +1,5 @@
+Vardas: Aurimas. Veiksmas: Daugyba. Atsakymai: 10. Užtruko: 0 minutes. 25 sek.
+Vardas: Aurimas. Veiksmas: Dalyba. Atsakymai: 10. Užtruko: 0 minutes. 20 sek.
+Vardas: Aurimas. Veiksmas: Sudėtis. Atsakymai: 10. Užtruko: 0 minutes. 47 sek.
+Vardas: Aurimas. Veiksmas: Atimtis. Atsakymai: 10. Užtruko: 1 minutes. 13 sek.
+[2021-05-22] Vardas: Aurimas. Veiksmas: Daugyba. Atsakymai: 2. Užtruko: 0 minutes. 5 sek.

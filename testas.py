@@ -1,5 +1,6 @@
 import random
 import time
+from datetime import date
 from colorama import *
 import math
 
@@ -11,8 +12,9 @@ def pasirinkimas():
                           'D' + Fore.GREEN +'), \n \tDalybą (' + Fore.LIGHTBLUE_EX +
                           'B' + Fore.GREEN + '), \n \tSudėtį (' + Fore.LIGHTBLUE_EX +
                           'S' + Fore.GREEN + '), \n \tAtimtį (' + Fore.LIGHTBLUE_EX +
-                          'A' + Fore.GREEN + ') \n \tar kartotis daugybos lentelę (' + Fore.LIGHTBLUE_EX +
-                          'L' + Fore.GREEN + ')?- ').lower()
+                          'A' + Fore.GREEN + '), \n \tkartotis daugybos lentelę (' + Fore.LIGHTBLUE_EX +
+                          'L' + Fore.GREEN + '), \n \tar peržiūrėti statistiką (' + Fore.LIGHTBLUE_EX +
+                          'T' + Fore.GREEN + ')?- ').lower()
     if koks_veiksmas == 'd':
         return daugyba()
     if koks_veiksmas == 'b':
@@ -23,6 +25,8 @@ def pasirinkimas():
         return atimtis()
     elif koks_veiksmas == 'l':
         return lentele()
+    elif koks_veiksmas == 't':
+        return statistika()
     else:
         print('\tAtsakymas turi būti :' + Fore.RED + '"D", "S"' + Fore.GREEN +
               ' arba ' + Fore.RED + '"A"' + Fore.GREEN + ' raidės')
@@ -33,8 +37,8 @@ def daugyba():
     try:
         print(Fore.RED + '\t|- Daugybos testas -|')
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED +
-                             ' (25/50)' + Fore.YELLOW + '- '))
-        if bandymai in [2, 25, 50]:
+                             ' (10/25/50)' + Fore.YELLOW + '- '))
+        if bandymai in [2, 10, 25, 50]:
             pagalba = 1
             spejimai = 0
             atsakyti = []
@@ -82,6 +86,10 @@ def daugyba():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        vardas = input('Koks tavo vardas?- ')
+                        f = open('statistika.txt', 'a+')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Daugyba. Atsakymai: {spejimai}. Užtruko: {minutes} minutes. {sekundes} sek.')
+                        f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             daugyba()
@@ -98,6 +106,7 @@ def daugyba():
                         print(*atsakyti, sep="\n")
                         print('\nTestas neišspręstas. Užtrukai:' + Fore.RED + f' {minutes} minutes. {sekundes} sek.')
                         print(Style.RESET_ALL)
+
                     else:
                         pass
                     kartojimas = input(Fore.GREEN + 'Nori bandyti dar kartą? (T/N)- ').lower()
@@ -118,8 +127,8 @@ def daugyba():
 def sudetis():
     try:
         print(Fore.RED + '\t|- Sudėties testas -|')
-        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED + ' (25/50)' + Fore.YELLOW + '- '))
-        if bandymai in [2, 25, 50]:
+        bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED + ' (10/25/50)' + Fore.YELLOW + '- '))
+        if bandymai in [2, 10, 25, 50]:
             pagalba = 1
             spejimai = 0
             atsakyti = []
@@ -167,6 +176,10 @@ def sudetis():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        vardas = input('Koks tavo vardas?- ')
+                        f = open('statistika.txt', 'a+')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Sudėtis. Atsakymai: {spejimai}. Užtruko: {minutes} minutes. {sekundes} sek.')
+                        f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             sudetis()
@@ -204,8 +217,8 @@ def atimtis():
     try:
         print(Fore.RED + '\t|- Atimties testas -|')
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED +
-                             ' (25/50)' + Fore.YELLOW + '- '))
-        if bandymai in [2, 25, 50]:
+                             ' (10/25/50)' + Fore.YELLOW + '- '))
+        if bandymai in [2, 10, 25, 50]:
             pagalba = 1
             spejimai = 0
             atsakyti = []
@@ -253,6 +266,10 @@ def atimtis():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        vardas = input('Koks tavo vardas?- ')
+                        f = open('statistika.txt', 'a+')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Atimtis. Atsakymai: {spejimai}. Užtruko: {minutes} minutes. {sekundes} sek.')
+                        f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             atimtis()
@@ -290,8 +307,8 @@ def dalyba():
     try:
         print(Fore.RED + '\t|- Dalybos testas -|')
         bandymai = int(input(Fore.YELLOW + '\tKelis kartus nori spręsti?' + Fore.RED +
-                             ' (25/50)' + Fore.YELLOW + '- '))
-        if bandymai in [2, 25, 50]:
+                             ' (10/25/50)' + Fore.YELLOW + '- '))
+        if bandymai in [2, 10, 25, 50]:
             pagalba = 1
             spejimai = 0
             atsakyti = []
@@ -341,6 +358,10 @@ def dalyba():
                         print(Fore.YELLOW + 'Teisingi atsakymai buvo šie:')
                         print(*atsakyti, sep="\n")
                         print('Testas išspręstas per:' + Fore.RED + f' {minutes} min. {sekundes} sek.')
+                        vardas = input('Koks tavo vardas?- ')
+                        f = open('statistika.txt', 'a+')
+                        f.write(f'\n[{date.today()}] Vardas: {vardas}. Veiksmas: Dalyba. Atsakymai: {spejimai}. Užtruko: {minutes} minutes. {sekundes} sek.')
+                        f.close()
                         kartojimas = input(Fore.GREEN + '\nNori bandyti dar kartą? (T/N)- ').lower()
                         if kartojimas in kartojimas_teigiami:
                             dalyba()
@@ -398,6 +419,19 @@ def lentele():
         else:
             pasirinkimas()
 
+
+def statistika():
+    kartojimas_teigiami = ['t', 'taip', 'teip', 'y', 'yes', 'ok']
+    with open('statistika.txt', 'r') as f:
+        lines = f.readlines()
+        for line in lines:
+            print(line)
+        f.close()
+    grizti = input(Fore.GREEN + 'Nori grįžti į pagrindinį meniu? (T/N)- ').lower()
+    if grizti in kartojimas_teigiami:
+        pasirinkimas()
+    else:
+        statistika()
 
 #if __name__ = "__main__":
      #pasirinkimas()
