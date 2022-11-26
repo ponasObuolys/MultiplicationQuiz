@@ -28,7 +28,7 @@ def pasirinkimas():
     elif koks_veiksmas == 't':
         return statistika()
     else:
-        print('\tAtsakymas turi būti :' + Fore.RED + '"D", "S"' + Fore.GREEN +
+        print('\tAtsakymas turi būti :' + Fore.RED + '"D", "B", "S"' + Fore.GREEN +
               ' arba ' + Fore.RED + '"A"' + Fore.GREEN + ' raidės')
         pasirinkimas()
 
