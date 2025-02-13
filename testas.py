@@ -176,9 +176,9 @@ def rodyti_statistika():
 def pagrindinis_meniu():
     while True:
         console.print('|------------------------------------------|')
-        console.print(TextFormatter.klaida('\t|- Ką nori mokytis? ') + 
-              TextFormatter.info('(pasirink raidę) ') + 
-              TextFormatter.klaida('-|'))
+        TextFormatter.klaida('\t|- Ką nori mokytis? ')
+        TextFormatter.info('(pasirink raidę) ')
+        TextFormatter.klaida('-|')
         
         pasirinkimas = input(
             TextFormatter.sekme(
